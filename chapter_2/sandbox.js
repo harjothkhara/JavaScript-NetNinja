@@ -1,28 +1,18 @@
-//strings
-console.log('hello, world');
+//common string methods
 
 let email = 'mario@thenetninja.co.uk';
 
-console.log(email);
+//lastIndexOf method finds the last index of a particular character('n') in a string
+// let result = email.lastIndexOf('n'); //14
 
-//string concatenation 'joining things together'
-let firstName = 'Brandon';
-let lastName = 'Sanderson';
+//slice method slices a section from the string, takes 2 args, 1 = starting point 2= ending point
+//let result = email.slice(2, 5); //rio
 
-let fullName = firstName + ' ' + lastName;
-console.log(fullName);
+// substr() is very much like slice but the 2 args are different - 1.start position 2. characters you want to go along. starts at position 4 and gets 10 characters total afterwards
+// let result = email.substr(4,10) //o@thenetni
 
-//getting characters
-console.log(fullName[2]);
+// replace() method replaces a certain character in the string with another character. take 2 arguments 1st the character you want to find and the second the replacement character. it only replaces the first character it finds.
 
-//string length
-console.log(fullName.length);
+let result = email.replace('n', 'w') //mario@thewetninja.co.uk
 
-//string methods
-console.log(fullName.toUpperCase());
-let result = fullName.toLowerCase();
-console.log(result, fullName);
-
-                //position
-let index = email.indexOf('@');
-console.log(index); //5
+console.log(result);
