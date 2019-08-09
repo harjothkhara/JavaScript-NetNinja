@@ -1,17 +1,28 @@
-// use the let keyword if you want to change the variable value later.
-let age = 25;
-let year = 2019;
+//strings
+console.log('hello, world');
 
-// log things to console.
-console.log(age, year);
+let email = 'mario@thenetninja.co.uk';
 
-age = 30;
-console.log(age);
+console.log(email);
 
-// use a const if we don't want the value assigned to it to be overriden.
-const points = 100;
-// points = 50; get an error with this as you can only assign a const variable once.
-console.log(points);
-//older ways to create variables
-var score = 75;
-console.log(75);
+//string concatenation 'joining things together'
+let firstName = 'Brandon';
+let lastName = 'Sanderson';
+
+let fullName = firstName + ' ' + lastName;
+console.log(fullName);
+
+//getting characters
+console.log(fullName[2]);
+
+//string length
+console.log(fullName.length);
+
+//string methods
+console.log(fullName.toUpperCase());
+let result = fullName.toLowerCase();
+console.log(result, fullName);
+
+                //position
+let index = email.indexOf('@');
+console.log(index); //5
