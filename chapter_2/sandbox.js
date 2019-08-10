@@ -1,28 +1,36 @@
-// type conversion - turning one data type into another data type
+// while loops - exactly the same thing as for loop, only difference is the syntax
 
-//let score = '100';
-//console.log(score + 1); // 1001 its concatenating a string and a number instead od adding numbers
+// for (let i = 0; i < 5; i++) {
+//   console.log('in loop: ', i);
+// }
 
-//let score = '100';
-//score variable value is converted from a string into a number
-//score = Number(score);
-//console.log(score + 1);  // 101
+// infinite loop - we're not incrementing
+// let i = 0;
 
-//let score = '100';
-// checking for type
-//console.log(typeof score); // string
+// while (i < 5) {
+//   console.log('in loop: ', i);
+// }
 
-//let score = '100';
-// doesn't make sense to turn this into a number but lets try it!
-//let result = Number('hello');
-//console.log(result); //NaN
 
-//let score = '100';
-// turing from a numbers to a string
-//let result = Boolean(50) // positive and negative numbers are considered a "truthy" value in type conversion, but 0 is false.
-//console.log(result, typeof result); // true "boolean"
+// let i = 0;
 
-let score = '100';
-// turing from a numbers to a string
-let result = Boolean('0') // strings of any length are all "truthy", an empty string would be "falsy"
-console.log(result, typeof result); // true "boolean"
+// while (i < 5) {
+//   console.log('in loop: ', i);
+//   i++;
+// }
+// in loop:  0
+// in loop:  1
+// in loop:  2
+// in loop:  3
+// in loop:  4
+
+const names = [ 'shaun', 'mario', 'luigi'];
+
+let i = 0;
+while(i < names.length){
+  console.log(names[i])
+  i++;
+}
+// shaun
+// mario
+// luigi
