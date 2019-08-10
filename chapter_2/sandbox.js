@@ -1,36 +1,16 @@
-// while loops - exactly the same thing as for loop, only difference is the syntax
+// do while loops - easy way to execute a block of code inside the loop, first, regardless of whether the condition is true or false. execute this code block regardless and increment i, then we run a while condition, and if i < 5 again then we go back up and run the loop again.
 
-// for (let i = 0; i < 5; i++) {
-//   console.log('in loop: ', i);
-// }
+let i = 3;
 
-// infinite loop - we're not incrementing
-// let i = 0;
-
-// while (i < 5) {
-//   console.log('in loop: ', i);
-// }
-
-
-// let i = 0;
-
-// while (i < 5) {
-//   console.log('in loop: ', i);
-//   i++;
-// }
-// in loop:  0
-// in loop:  1
-// in loop:  2
-// in loop:  3
-// in loop:  4
-
-const names = [ 'shaun', 'mario', 'luigi'];
-
-let i = 0;
-while(i < names.length){
-  console.log(names[i])
+do{
+  console.log('val of i is: ', i);
   i++;
-}
-// shaun
-// mario
-// luigi
+} while(i < 5)
+
+// val of i is:  5
+
+i = 4
+// val of i is:  4
+i = 3
+// val of i is: 3
+// val of i is: 4
