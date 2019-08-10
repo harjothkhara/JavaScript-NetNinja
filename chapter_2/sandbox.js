@@ -1,16 +1,19 @@
-// do while loops - easy way to execute a block of code inside the loop, first, regardless of whether the condition is true or false. execute this code block regardless and increment i, then we run a while condition, and if i < 5 again then we go back up and run the loop again.
+// if statements
 
-let i = 3;
+// age = 25;
 
-do{
-  console.log('val of i is: ', i);
-  i++;
-} while(i < 5)
+// if (age > 20){
+//   console.log('you are over 20 years old')
+// }
 
-// val of i is:  5
+// const ninjas = ['shaun', 'ryu', 'chun-li', 'yoshi'];
 
-i = 4
-// val of i is:  4
-i = 3
-// val of i is: 3
-// val of i is: 4
+// if (ninjas.length > 3){
+//   console.log("that's a lot of ninjas");
+// }
+
+const password = 'p@assword';
+
+if(password.length >= 8){
+  console.log('that password is long enough!');
+}
