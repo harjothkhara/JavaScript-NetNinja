@@ -1,43 +1,24 @@
 let radius = 10;
 const pi = 3.14;
+// template strings
+const title = 'Best reads of 2019';
+const author = 'Mario';
+const likes = 30;
 
-//console.log(radius, pi);
+// concatenation way - ok for 1 or 2 variables
+// let result = 'The blog called ' + title + ' by ' + author + ' has ' + likes + ' likes ';
+// console.log(result);
 
-// math operators +, -, *, /, **(to the power of), %(remainder)-----------------------
-
-//console.log(10/2);
-//let result = radius % 3; //takes the radius, divides it by 3 and gives us a remainder
-//1
-
-//let result = pi * radius**2 //area of a circle = pi r squared
-//314
-
-// order of operation - how you perform calculations when they become complex - B I D M A S -----------
-// Brackets Indexes(**) Division Multiplication Addition Subtraction
-
-//let result = 5 * (10-3)**2
-
-//console.log(result);
-
-let likes = 10;
-
-// likes = likes + 1;
-
-// short hand notation:---------------
-// likes++; //same as adding 1
-//likes--; //same as subtracting 1
-
-//likes += 10; //take the current variable value and add 10 to it
-//likes -=5; // take the current variable value and subtract 5 from it
-//likes *=2; //take the current variable value and multiple 2 to it
-//likes /=2; //takes the current variable value and divide it by 2
-//console.log(likes);
-
-// NaN - not a number------------------ trying to do some calculation that doesn't result in a number
-//console.log(5 /'hello'); //NaN
-//console.log(5 * 'hello'); //NaN
-
-// concatinate numbers - take the numbers and adds it into the string
-
-let result = 'the blog has ' + likes + ' likes';
+// template string literal way (preferred) - job is to allow us to inject variables directly into the string without coming out of it and having to concatenate + signs like above.
+let result = `The blog called ${title} by ${author} has ${likes} likes`;
 console.log(result);
+
+
+// creating html templates
+let html = `
+  <h2>${title}</h2>
+  <p>By ${author}</p>
+  <span>This blog has ${likes} likes</span>
+`;
+
+console.log(html);
