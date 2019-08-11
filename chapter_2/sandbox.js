@@ -1,50 +1,30 @@
-// function declaration
-// function greet(){
-//   console.log('hello there');
-// }
+// arguments & parameters
 
-// function expression - store a function inside a variable
-// const speak = function(){
-//   console.log('good day!');
+// function expression - stores a function inside a variable. no hoisting.
+// name variable has the scope of this function and can only be used inside it.
+// const speak = function(name){
+//   console.log(`good day ${name}`);
+// };
+// can't access name outside of the function because its a local variable. nothing happens.
+//console.log(name)
+
+// taken this value "argument" and assigned it to the function local variable - name "parameter". we are passing a value into the function
+//speak('mario'); // good day mario
+
+// can pass in multiple parameters into the function
+// const speak = function(name, time){
+//   console.log(`good ${time} ${name}`);
 // };
 
-// greet();
-// greet();
-// greet();
+// the order of the arguments must match the order of the parameters
+//speak('mario', 'morning'); // good morning mario
 
-// speak();
-// speak();
-// speak();
+// if no values are set on the function call we can set the values of the parameters within the function.
 
-// hoisting loosely describes how our functions are hoisted to the top of a file before the rest of our JS actually runs. they're all declared before the rest of our JS. Does this with function declarations but not with function expressions.
-
-// hoisting works with function declarations ---------------------------------------
-
-// greet();
-// greet();
-// greet();
-
-// function declaration
-// function greet(){
-//   console.log('hello there');
-// }
-
-// JS is using hoisting to hoist the greet() function to the top of the file (defining it before its called) in order for this to work, even though the function declaration is way down at the bottom of the page.
-
-// hello there
-// hello there
-// hello there
-
-// hoisting does not work with function expressions---------------------------------
-
-speak();
-speak();
-speak();
-
-
-// function expression
-const speak = function(){
-  console.log('good day!');
+const speak = function(name='luigi', time='night'){
+  console.log(`good ${time} ${name}`);
 };
-// Uncaught ReferenceError: Cannot access 'speak' before initialization
-//function expression are not hoisted to the top
+// no arguments passes in then function will assign these default values to the parameters
+speak();
+// now argument override the default values
+speak('shaun', 'day');
