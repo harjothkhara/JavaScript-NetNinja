@@ -1,37 +1,21 @@
-// switch statements
-const grade = 'D';
+// variables & block scope
 
-switch(grade){
-  case 'A':
-    console.log('you got an A!');
-    break;
-  case 'B':
-    console.log('you got an B!');
-    break;
-  case 'C':
-    console.log('you got an C!');
-    break;
-  case 'D':
-    console.log('you got an D!');
-    break;
-  case 'E':
-    console.log('you got an E!');
-    break;
-  default:
-    console.log('not a valid grade');
+// global scope
+let age = 30;
+
+if(true){
+  // local scope - can only be accessed within this code block
+  let age = 40;
+  let name = 'shaun'
+  console.log('outside code block: ', age, name);
+
+  if(true){
+    // local scope - can only be accessed within this code block
+    let age = 50;
+    console.log('inside 2nd code block: ', age);
+  }
 }
 
-// // using if statements
-// if(grade === 'A'){
+console.log('outside code block: ', age, name);
 
-// } else if(grade === 'B'){
-
-// } else if(grade === 'C'){
-
-// } else if (grade === 'D'){
-
-// } else if (grade === 'E'){
-
-// } else {
-
-// }
+// same rules apply to const and let as far as local scope - or their lexical environment. var ignores block scope.
