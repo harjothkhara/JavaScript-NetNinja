@@ -1,21 +1,50 @@
-// variables & block scope
+// function declaration
+// function greet(){
+//   console.log('hello there');
+// }
 
-// global scope
-let age = 30;
+// function expression - store a function inside a variable
+// const speak = function(){
+//   console.log('good day!');
+// };
 
-if(true){
-  // local scope - can only be accessed within this code block
-  let age = 40;
-  let name = 'shaun'
-  console.log('outside code block: ', age, name);
+// greet();
+// greet();
+// greet();
 
-  if(true){
-    // local scope - can only be accessed within this code block
-    let age = 50;
-    console.log('inside 2nd code block: ', age);
-  }
-}
+// speak();
+// speak();
+// speak();
 
-console.log('outside code block: ', age, name);
+// hoisting loosely describes how our functions are hoisted to the top of a file before the rest of our JS actually runs. they're all declared before the rest of our JS. Does this with function declarations but not with function expressions.
 
-// same rules apply to const and let as far as local scope - or their lexical environment. var ignores block scope.
+// hoisting works with function declarations ---------------------------------------
+
+// greet();
+// greet();
+// greet();
+
+// function declaration
+// function greet(){
+//   console.log('hello there');
+// }
+
+// JS is using hoisting to hoist the greet() function to the top of the file (defining it before its called) in order for this to work, even though the function declaration is way down at the bottom of the page.
+
+// hello there
+// hello there
+// hello there
+
+// hoisting does not work with function expressions---------------------------------
+
+speak();
+speak();
+speak();
+
+
+// function expression
+const speak = function(){
+  console.log('good day!');
+};
+// Uncaught ReferenceError: Cannot access 'speak' before initialization
+//function expression are not hoisted to the top
