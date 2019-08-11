@@ -1,30 +1,39 @@
-// arguments & parameters
+// returning values
 
-// function expression - stores a function inside a variable. no hoisting.
-// name variable has the scope of this function and can only be used inside it.
-// const speak = function(name){
-//   console.log(`good day ${name}`);
-// };
-// can't access name outside of the function because its a local variable. nothing happens.
-//console.log(name)
+// const calcArea = function(radius){
+//   let area = 3.14 * radius**2;
+//   console.log(area); not being stored in memory
+// }
+// // area is only stored locally within the function
+// calcArea(5); // 78.5
+// console.log(area); // area is not defined
 
-// taken this value "argument" and assigned it to the function local variable - name "parameter". we are passing a value into the function
-//speak('mario'); // good day mario
+// using the return keyword in the function to return a value
+// const calcArea = function(radius){
+//   let area = 3.14 * radius**2;
+//   // now we're not logging the area to the console anymore, instead we're returning a value
+//   return area
+// }
 
-// can pass in multiple parameters into the function
-// const speak = function(name, time){
-//   console.log(`good ${time} ${name}`);
-// };
+// if a function returns a value we need to take that value and store it to a variable that has global scope. doesn't matter what that variable is called, area just makes the most sense.
+//const area = calcArea(5);
+//console.log(area); 78.5
 
-// the order of the arguments must match the order of the parameters
-//speak('mario', 'morning'); // good morning mario
+//clean up - we don't need to store this to a local variable, we can just return it directly.
 
-// if no values are set on the function call we can set the values of the parameters within the function.
-
-const speak = function(name='luigi', time='night'){
-  console.log(`good ${time} ${name}`);
+// function expression - no hoisting
+const calcArea = function(radius){
+  return 3.14 * radius**2;
 };
-// no arguments passes in then function will assign these default values to the parameters
-speak();
-// now argument override the default values
-speak('shaun', 'day');
+// save the return value to a global variable, pass in an argument and console.log the result
+const area = calcArea(5)
+console.log(area); // 78.5
+
+// benefit is we can now take that area and do something with it and use it another function to calculate volume amd pass in area.
+ const calcVol = function(area){
+
+ }
+
+ calcVol(area)
+
+ // we're now able to reuse a value that a function brings back to us
