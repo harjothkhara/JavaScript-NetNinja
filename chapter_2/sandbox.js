@@ -1,39 +1,64 @@
-// returning values
+// regular function
 
 // const calcArea = function(radius){
-//   let area = 3.14 * radius**2;
-//   console.log(area); not being stored in memory
+//   return 3.14 * radius**2;
+// };
+
+// arrow function
+
+// const calcArea = radius => {
+// return 3.14 * radius**2;
+// };
+
+// if we have more then one parameter
+// const calcArea = (radius, somethingelse) => {
+//   return 3.14 * radius**2;
+//   };
+
+// if we have no parameters - anonymous function
+// const calcArea = () => {
+//   return 3.14 * radius**2;
+//   };
+
+// if we only have a single return we can get rid of the return keyword
+// const calcArea = radius => 3.14 * radius**2;
+
+// binding of the 'this keyword
+
+// const area = calcArea(5)
+// console.log('area is:', area); // area is: 78.5
+
+// practice arrow function
+
+// regular function
+// const greet = function(){
+//   return 'hello, world';
 // }
-// // area is only stored locally within the function
-// calcArea(5); // 78.5
-// console.log(area); // area is not defined
 
-// using the return keyword in the function to return a value
-// const calcArea = function(radius){
-//   let area = 3.14 * radius**2;
-//   // now we're not logging the area to the console anymore, instead we're returning a value
-//   return area
+// arrow function
+//const greet = () => 'hello world'; // single line return so no need for return statement
+//const result = greet() //storing return value from function to result variable
+//console.log(result) // logging the value to the console
+
+// regular function
+// const bill = function(products, tax){
+//   let total = 0; // local variable
+//   for (let i = 0; i < products.length; i++){ // cycling through products array
+//     total += products[i] + products[i] * tax; //  cycling through products (array) and for each product we're getting the total and adding the product value plus any kind of tax
+//   }
+//   return total; // then in the end we're returning the total
 // }
+// logging this directly in the console instead of saving it to a variable like above. exactly the same.
+ //console.log(bill([10, 15, 30], 0.2)) // 66
 
-// if a function returns a value we need to take that value and store it to a variable that has global scope. doesn't matter what that variable is called, area just makes the most sense.
-//const area = calcArea(5);
-//console.log(area); 78.5
-
-//clean up - we don't need to store this to a local variable, we can just return it directly.
-
-// function expression - no hoisting
-const calcArea = function(radius){
-  return 3.14 * radius**2;
+// arrow function
+const bill = (products, tax) => {
+  let total = 0;
+  for (let i = 0; i < products.length; i++){
+    total += products[i] + products[i] * tax;
+  }
+  return total;
 };
-// save the return value to a global variable, pass in an argument and console.log the result
-const area = calcArea(5)
-console.log(area); // 78.5
 
-// benefit is we can now take that area and do something with it and use it another function to calculate volume amd pass in area.
- const calcVol = function(area){
-
- }
-
- calcVol(area)
-
- // we're now able to reuse a value that a function brings back to us
+ const result = bill([10, 15, 30], 0.2);
+ console.log(result); //66
