@@ -1,43 +1,28 @@
-// object literals - objects in arrays
+// Math object
 
-// storing objects inside of arrays
-// const blogs = [
-//   { title: 'why mac & cheese rules', likes: 30 },
-//   { title: '10 things to make with marmite', likes: 50 }
-// ];
+console.log(Math); // different methods attached to the Math object
+console.log(Math.PI); // 3.141592653589793
+console.log(Math.E); // 2.718281828459045 Eulers Number
 
-//console.log(blogs);
+//methods
 
-//object
-let user = {
-  // properties with key value pairs
-  name: 'crystal',
-  age: 30,
-  email: 'crystal@thenetninja.co.uk',
-  location: 'berlin',
-  blogs: [
-    { title: 'why mac & cheese rules', likes: 30 },
-    { title: '10 things to make with marmite', likes: 50 }
-  ],
-  //key value pair
-  //name of method and this is what it does
-  login: function(){
-    console.log('the user logged in');
-  },
-  logout: function(){ //still regular function
-    console.log('the user logged out');
-  },
-  logsblogs(){ //still regular function but a shorthand version
-    //console.log(this.blogs) //"this" refers to this user object
-    console.log('this user has written the following blogs');
-    this.blogs.forEach(blog => { // now each blog is going to represent an object in the array
-      console.log(blog.title, blog.likes);
-    })
-  }
-};
+const area = 7.7;
 
-// make a method to logout all the blogs - to do that we need to use the "this" keyword.
-user.logsblogs();
-// this user has written the following blogs
-// why mac & cheese rules 30
-// 10 things to make with marmite 50
+// round() take a number and rounds it to the nearest integer, either up or down.
+console.log(Math.round(area)); //8
+// floor() takes a number down to integer, regardless if its closer to one integer or not.
+console.log(Math.floor(area)); //7
+// ceil() opposite of floor and rounds a number up
+console.log(Math.ceil(area)); //7
+// trunc() takes away the decimal and leave the integer
+console.log(Math.trunc(area)); //7
+
+// use case of Math object
+
+//random numbers --random() is a random decimal number between 0 and 1
+
+const random = Math.random();
+
+console.log(random);
+console.log(Math.round(random)); // either 1 or 0 every time
+console.log(Math.round(random * 100)); // any number between 1 and 100
