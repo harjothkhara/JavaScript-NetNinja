@@ -5,7 +5,7 @@ const people = ['mario', 'luigi', 'ryu', 'shaun', 'chun-li'];
 
 let html = ``;
 
-people.forEach(function(person){
+people.forEach(person => {
   // create html template
   console.log(person); // first parameter of the callback function returns back each element in the array, we've called the first argument person to represent this.
 
