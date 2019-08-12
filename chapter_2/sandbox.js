@@ -1,24 +1,32 @@
-// get a reference to the 'ul'
-const ul = document.querySelector('.people');
+// object literals
 
-const people = ['mario', 'luigi', 'ryu', 'shaun', 'chun-li'];
+//object
+let user = {
+  // properties with key value pairs
+  name: 'crystal',
+  age: 30,
+  email: 'crystal@thenetninja.co.uk',
+  location: 'berlin',
+  blogs: ['why mac & cheese rules', '10 things to make with marmite']
+};
 
-let html = ``;
+console.log(user);
 
-people.forEach(person => {
-  // create html template
-  console.log(person); // first parameter of the callback function returns back each element in the array, we've called the first argument person to represent this.
+// if we want to access one of the properties from this object we can use dot notation
+console.log(user.name); // crystal
 
-  // using template string literals to inject variables directly into our html template and then adding each iteration of the html template with each element to the html variable.
-  html += `<li style="color:purple">${person}</li>`
-})
+// if you want to override one of the properties values in the user object you can use dot notation on the property value.
+user.age = 35;
+console.log(user.age); //35
 
-// for each person we're adding the html template onto the html. each time we fire this callback function for each element, we're adding the html snippet onto the html.
+// you can also access and update properties using square bracket notation
+console.log(user['name']); //crystal
+user['name'] = 'chun-li';
+console.log(user['name']); // chun-li
 
-console.log(html); // <li style="color:purple">mario</li><li style="color:purple">luigi</li><li style="color:purple">ryu</li><li style="color:purple">shaun</li><li style="color:purple">chun-li</li>
+// occasionally square bracket notation can be useful if we're passing some kind of variable
+//passing this string via the variable into the square brackets
+const key = 'location';
+console.log(user[key]); // same as user['location]
 
-
-// now we want to output it to the browser 1.get a reference to an element on the page ---> const ul = document.querySelector('.people');
-
-// places the html inside the ul tag
-ul.innerHTML = html;
+console.log(typeof user); // object
