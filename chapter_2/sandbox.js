@@ -1,15 +1,19 @@
-// reference to attribute using getAttribute method
-const link = document.querySelector('a');
+const title = document.querySelector('h1');
+//console.log(title); // <h1 style="color: orange;">The DOM</h1>
 
-console.log(link.getAttribute('href')) // https://www.google.com/
+//title.setAttribute('style', 'margin: 50px;') // overriden orange color
+// setAttribute() overrides whats currently there
 
-//change or set an attribute
-link.setAttribute('href', 'https://www.thenetninja.co.uk');
-link.innerText = 'TheNet Ninja Website';
+// style is a CSS property names in the DOM
+console.log(title.style); // CSSStyleDeclaration {0: "color", alignContent: "", alignItems: "", alignSelf: "", alignmentBaseline: "", all: "", …}
+console.log(title.style.color); //orange
 
-const mssg = document.querySelector('p');
-console.log(mssg.getAttribute('class')); // error - class name of p tag
-mssg.setAttribute('class', 'success'); // <p class="success">lorem ipsum</p>
+title.style.margin = '50px'; //new property added and color not overidden
+title.style.color = 'crimson'; //overidden the origina color but not the margin
 
-//setting a new attribute that doesn't exist yet
-mssg.setAttribute('style', 'color: green;') // p class with lorem ipsum is now green. <p class="success" style="color: green;">lorem ipsum</p>
+title.style.fontSize = '60px'; // font size increases, color and margin not overriden.
+
+// if your unsure what the name will be just refer to the style property,
+
+//removing a property
+title.style.margin = ''; // margin has now gone
