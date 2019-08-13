@@ -1,42 +1,30 @@
-const content = document.querySelector('p');
+const article = document.querySelector('article');
+console.log(article.children) //can't use forEach on HTMLCollection
 
-// classList is a property that lists all the classes the p element has.
-console.log(content.classList) // DOMTokenList ["error", value: "error"]
+// converting a HTMLCollection to an array using the Array object built into JS
+console.log(Array.from(article.children)); //now we have an array
+console.log(article.children); //original value is still there with the HTMLCollection
 
-// add or remove classes
-
-//taking the p tag and adding a class to it called error by using the add() method
-// for this example we removed the p class error beforehand.
-content.classList.add('error');
-console.log(content.classList); // DOMTokenList ["error", value: "error"]
-
-
-//removing class use the remove()
-content.classList.remove('error');
-console.log(content.classList); //DOMTokenList [value: ""]
-
-// adding a new class
-//content.classList.add('success');
-//console.log(content.classList); // text should now be limegreen
-
-//challenge: query all the elements and cycle through them and give the elements that have error inside the tag a error class, any p tag that has a class of success inside a success class.
-
-// get a reference to all the p tags
-const paras = document.querySelectorAll('p');
-console.log(paras);
-// textContent(includes hidden content) vs. innerText (does not include hidden content)
-paras.forEach(p => {
-  if(p.textContent.includes('error')){
-    p.classList.add('error');
-  }
-  if(p.innerText.includes('success')){
-    p.classList.add('success');
-  }
+// parent/child relationship
+Array.from(article.children).forEach(child => {
+  child.classList.add('article-element');
 });
 
-// how to toggle classes
-const title = document.querySelector('.title');
+// child/parent relationship (other way round)
 
-// if i use the toggle it will give it a class of test
-title.classList.toggle('test'); // toggle class added
-title.classList.toggle('test'); // toggle class removed
+const title = document.querySelector('h2'); //what's your parent?
+
+console.log(title.parentElement); // <article></article>
+
+// we go get further up the node tree still and chain these things together
+// gives us the parent of the article
+console.log(title.parentElement.parentElement); // <body></body>
+
+// sibling relationship - next element next to the h2
+console.log(title.nextElementSibling) //<p class="article-element">lorem error ipsum</p>
+
+// what if i want the previous sibling
+console.log(title.previousElementSibling) //null - if at the top and a previous element doesn't exist
+
+//chaining
+console.log(title.nextElementSibling.parentElement.children); // all the elements inside the article tag -- HTMLCollection
