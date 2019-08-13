@@ -24,7 +24,7 @@ console.log(content.classList); //DOMTokenList [value: ""]
 // get a reference to all the p tags
 const paras = document.querySelectorAll('p');
 console.log(paras);
-
+// textContent(includes hidden content) vs. innerText (does not include hidden content)
 paras.forEach(p => {
   if(p.textContent.includes('error')){
     p.classList.add('error');
