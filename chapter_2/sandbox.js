@@ -1,27 +1,32 @@
-// primitive values
+// store our reference in a variable
 
-// let scoreOne = 50; // saved in memory (stack)
-// let scoreTwo = scoreOne; // saved in memory (stack)
+// using method on document object to query the dom - html model created by the browser as an object "document object". querySelector() method on the document grabs only the first selector type.
+// const para = document.querySelector('p');
+// console.log(para); // <p>hello, world</p>
 
-// // template string
-// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`); // scoreOne: 50 scoreTwo: 50
+// class selector
+// const para = document.querySelector('.error');
+// console.log(para); // <p class="error">this is an error message</p>
 
-// scoreOne = 100;
-// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`); // scoreOne: 100 scoreTwo: 50
+// querying a div class with the name error
+// const para = document.querySelector('div.error');
+// console.log(para); // <div class="error">this is another error</div>
 
+// grabbing multiple elements
 
-// reference values - stored on the heap and we get a pointer locked to the UserOne variable stored on the stack. when we create a copy it doesn't copy the actual object but instead copies the pointer on the stack, and userTwo is locked to that new pointer. They both still point to the same object.
+const paras = document.querySelectorAll('p');
 
-const userOne = { name: 'ryu', age: 30 };
-const userTwo = userOne;
+paras.forEach(para => {
+  console.log(para)
+})
 
-console.log(userOne, userTwo);
-// {name: "ryu", age: 30}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
-// {name: "ryu", age: 30}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
+//console.log(paras[0]) //<p>hello, world</p>
+//console.log(paras[1]) // <p>lorem ipsum</p>
 
-userOne.age = 40;
-console.log(userOne, userTwo);
-// {name: "ryu", age: 40}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
-// {name: "ryu", age: 40}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
+const errors = document.querySelectorAll('.error');
 
-// both are 40 because the object is only stored once on the heap and the both pointers are pointing to the same object.
+errors.forEach(error => {
+  console.log(error)
+});
+
+//console.log(errors)
