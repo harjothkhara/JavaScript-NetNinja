@@ -1,32 +1,13 @@
-// store our reference in a variable
+// get an element by ID
+const title = document.getElementById('page-title')
+console.log(title); // <h1 id="page-title">The DOM</h1>
 
-// using method on document object to query the dom - html model created by the browser as an object "document object". querySelector() method on the document grabs only the first selector type.
-// const para = document.querySelector('p');
-// console.log(para); // <p>hello, world</p>
+// get elements by their class name
+const errors = document.getElementsByClassName('error');
+console.log(errors); // HTMLCollection - cannot use the forEach() method
+console.log(errors[0]);
 
-// class selector
-// const para = document.querySelector('.error');
-// console.log(para); // <p class="error">this is an error message</p>
-
-// querying a div class with the name error
-// const para = document.querySelector('div.error');
-// console.log(para); // <div class="error">this is another error</div>
-
-// grabbing multiple elements
-
-const paras = document.querySelectorAll('p');
-
-paras.forEach(para => {
-  console.log(para)
-})
-
-//console.log(paras[0]) //<p>hello, world</p>
-//console.log(paras[1]) // <p>lorem ipsum</p>
-
-const errors = document.querySelectorAll('.error');
-
-errors.forEach(error => {
-  console.log(error)
-});
-
-//console.log(errors)
+// get elements by their tag name
+const paras = document.getElementsByTagName('p');
+console.log(paras); // HTMLCollection
+console.log(paras[1]) // <p>lorem ipsum</p>
