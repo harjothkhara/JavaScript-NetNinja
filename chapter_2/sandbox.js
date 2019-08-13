@@ -1,13 +1,41 @@
-// get an element by ID
-const title = document.getElementById('page-title')
-console.log(title); // <h1 id="page-title">The DOM</h1>
+// reach and grab a reference to the paragraph
+const para = document.querySelector('p');
+// innerText property gives us access to the inner text of the first p tag.
+console.log(para.innerText); // hello, world
 
-// get elements by their class name
-const errors = document.getElementsByClassName('error');
-console.log(errors); // HTMLCollection - cannot use the forEach() method
-console.log(errors[0]);
+// update text to something else, overriding old text
+para.innerText = 'ninjas are awesome!'; // ninjas are awesome! -- text inside p tag has changed on the page
 
-// get elements by their tag name
-const paras = document.getElementsByTagName('p');
-console.log(paras); // HTMLCollection
-console.log(paras[1]) // <p>lorem ipsum</p>
+// if you wanted to append text i.e add on extra text
+para.innerText += 'ninjas are awesome!'; // ninjas are awesome!ninjas are awesome!
+
+// change the text of several items at once
+// this query has a nodelist which has the forEach()
+const paras = document.querySelectorAll('p');
+//console.log(paras);
+paras.forEach(para => {
+  console.log(para.innerText);
+  para.innerText += ' new text';
+})
+
+// change the html of something
+
+// grabbing a reference to html
+const content = document.querySelector('.content');
+console.log(content.innerHTML); // <p>this is the content new text</p> html inside the div class 'content'
+
+//content.innerHTML = '<h2>This is a new H2</h2>'; // p tag element has now been changed and overriden
+
+/// append
+content.innerHTML += '<h2>This is a new H2</h2>'; // both elements are now inside the content div
+
+// example: gone out to a dB and got a list or  array of people and we want to output a html template for each one of those people in the array
+
+const people = ['mario', 'luigi', 'yoshi'];
+
+people.forEach(person => {
+  content.innerHTML += `<p>${person}</p>`
+});
+// <p>mario</p>
+// <p>luigi</p>
+// <p>yoshi</p>
