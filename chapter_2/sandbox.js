@@ -1,28 +1,27 @@
-// Math object
+// primitive values
 
-console.log(Math); // different methods attached to the Math object
-console.log(Math.PI); // 3.141592653589793
-console.log(Math.E); // 2.718281828459045 Eulers Number
+// let scoreOne = 50; // saved in memory (stack)
+// let scoreTwo = scoreOne; // saved in memory (stack)
 
-//methods
+// // template string
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`); // scoreOne: 50 scoreTwo: 50
 
-const area = 7.7;
+// scoreOne = 100;
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`); // scoreOne: 100 scoreTwo: 50
 
-// round() take a number and rounds it to the nearest integer, either up or down.
-console.log(Math.round(area)); //8
-// floor() takes a number down to integer, regardless if its closer to one integer or not.
-console.log(Math.floor(area)); //7
-// ceil() opposite of floor and rounds a number up
-console.log(Math.ceil(area)); //7
-// trunc() takes away the decimal and leave the integer
-console.log(Math.trunc(area)); //7
 
-// use case of Math object
+// reference values - stored on the heap and we get a pointer locked to the UserOne variable stored on the stack. when we create a copy it doesn't copy the actual object but instead copies the pointer on the stack, and userTwo is locked to that new pointer. They both still point to the same object.
 
-//random numbers --random() is a random decimal number between 0 and 1
+const userOne = { name: 'ryu', age: 30 };
+const userTwo = userOne;
 
-const random = Math.random();
+console.log(userOne, userTwo);
+// {name: "ryu", age: 30}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
+// {name: "ryu", age: 30}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
 
-console.log(random);
-console.log(Math.round(random)); // either 1 or 0 every time
-console.log(Math.round(random * 100)); // any number between 1 and 100
+userOne.age = 40;
+console.log(userOne, userTwo);
+// {name: "ryu", age: 40}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
+// {name: "ryu", age: 40}age: 40name: "ryu"__proto__: Object {name: "ryu", age: 30}
+
+// both are 40 because the object is only stored once on the heap and the both pointers are pointing to the same object.
