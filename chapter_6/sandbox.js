@@ -1,34 +1,32 @@
+//how do we delete something from the DOM
+
+const ul = document.querySelector('ul');
+//remove method takes it out of the webpage
+//ul.remove();
+
 const button = document.querySelector('button');
+// no parameter need since we don't need it on this button
+// button.addEventListener('click', () => {
+//   ul.innerHTML += '<li>something new</li>'
+// }); // this way works but lets look at another way
 
-// method - event listener - which actively listens for certain events on this button
-// 1st argument is for the whatever event listener, 2nd argument is a callback function which is going to fire when this event listener occurs on this button.
 button.addEventListener('click', () => {
-  console.log('you clicked me');
+//method on the 'document object' that we can use to create a new html element
+  const li = document.createElement('li'); // reference to it
+  li.textContent = 'something new to do';
+  //insert it into the DOM - 1.append it 2. prepend it
+  //ul.append(li); // appends it to the bottom of the parent
+  ul.prepend(li); // prepend it the top of the parent
 });
-// <click on button> you clicked me
-
-// attaching an event listeners to each one of the li tags
 
 const items = document.querySelectorAll('li'); //NodeList
 
 items.forEach(item => {
-  item.addEventListener('click', () => {
-    console.log('item clicked');
-  });
-});
+  item.addEventListener('click', e => {
+    //e.target.style.textDecoration = 'line-through';
+    e.target.remove(); //li tag get removed when we click on them
+    // how to add something to the DOM (already seen addInnerHTML)
 
-// ultimately we want to delete the li tag that we click on from our todolist. how do we know which li tag we clicked? when an event occurs in the browser, like a click event, inside this callback function the browser automatically gives us a parameter called e or event. now this contains information about the event that just happened on the webpage.
 
-items.forEach(item => {
-  item.addEventListener('click', (e) => {
-    //console.log('item clicked');
-    console.log(e) //event object created by the browser about the event that just happened. tons of different properties on this object. we want to use the target property which will tell us which element was clicked.
-    console.log(e.target); // tell us which li tag we clicked on
-    console.log(item); // also tell us which li tag we clicked on but we're not always cycling through something. e.target can be used regardless.
-
-    // delete/change style of each li when we click on it
-    e.target.style.textDecoration = 'line-through';
-    //also works
-    item.style.textDecoration = 'line-through';
-  });
-});
+  })
+})
