@@ -1,15 +1,15 @@
-// references
-const form = document.querySelector('.signup-form');
-const username = document.querySelector('#username');
+// Regular Expressions(RegEx)
 
-// both an enter or a click on the button fires an event, whereas a click event would only fire on a click.
-form.addEventListener('submit', e => {
-  // default action of a submit button is a page refresh. preventDefault() prevents the default action of an event, so the default action of the submit event is to refresh the page.
-  e.preventDefault();
-  // when we get the input field from the dom we can use a value property on it to get us the value the user types into the form.
-  // 1st way of getting the input field
-  //console.log(username.value); // mario
-// 2nd gets fields from a form using dot notation and the id
-  console.log(form.username.value); // its going to look for the name or id in the html form
+// Exact match i.e no characters before or after --> ^ninja$
 
-});
+// Match any one letter a-z -> use a character set inside [] ---> ^[a-z]$ this will only match a single letter between a-z
+
+// Match any one letter between a-z that also includes capital letters --> ^[a-zA-Z]$
+
+// Matching a word between 6-10 characters long a-z, A-Z, includes capitals. We want this range of characters a-z, A-Z to be typed out between 6- 10 letter long, essentially a word. --> ^[a-zA-Z]{6,10}$
+  //Helloooooo
+
+// Matching a word between 6-10 characters long a-z, A-Z, includes numbers --> ^[a-zA-Z0-9]{6,10}$
+  //Ninja123
+
+  // Any characters between 6-10 characters --> ^.{6,10}$
