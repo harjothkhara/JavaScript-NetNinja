@@ -22,6 +22,22 @@ form.addEventListener('submit', e => {
   //console.log(score); // 25 because the user selected only 1 correct answer, 50 because the user selected 2 correct answers...
 
   //show result on page
+  scrollTo(0,0) // takes in an x and y coordinate
   result.querySelector('span').textContent = `${score}%`; //updating text content inside the span
   result.classList.remove('d-none') //getting a class list of the div container and removing display none class.
 });
+
+// window object (global object) - all FE javascript objects come from the window object. we don't need to type out window because its automatically inferred b/c its on the global object.
+// console.log('hello');
+// window.console.log('hello');
+
+//console.log(document.querySelector('form')) // document object is also stored on the window object
+//console.log(window.document.querySelector('form')) // same thing
+
+//alert('hello'); stored on the window object we just don't need to infer to it directly
+//window.alert('hello');
+
+// takes a callback function and fires it after a certain amount of time
+// setTimeout(() => {
+//   alert('hello ninjas');
+// },3000);
