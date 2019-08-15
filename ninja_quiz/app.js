@@ -1,5 +1,6 @@
 const correctAnswers = ['B', 'B', 'B','B'];
 const form = document.querySelector('.quiz-form');
+const result = document.querySelector('.result');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -18,6 +19,9 @@ form.addEventListener('submit', e => {
     }
   });
 
-  console.log(score); // 25 because the user selected only 1 correct answer, 50 because the user selected 2 correct answers...
+  //console.log(score); // 25 because the user selected only 1 correct answer, 50 because the user selected 2 correct answers...
 
+  //show result on page
+  result.querySelector('span').textContent = `${score}%`; //updating text content inside the span
+  result.classList.remove('d-none') //getting a class list of the div container and removing display none class.
 });
