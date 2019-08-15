@@ -1,15 +1,27 @@
-// Regular Expressions(RegEx)
+const form = document.querySelector('.signup-form');
 
-// Exact match i.e no characters before or after --> ^ninja$
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  console.log(form.username.value)
+});
 
-// Match any one letter a-z -> use a character set inside [] ---> ^[a-z]$ this will only match a single letter between a-z
+// testing RegEx
+const username = 'shaunp123';
+// lowercase letters at least 6 characters long
+const pattern = /^[a-z]{6,}$/;
 
-// Match any one letter between a-z that also includes capital letters --> ^[a-zA-Z]$
+//using a method on the pattern
+// takes in a value you want to test(RegEx method) and returns a boolean
+//let result = pattern.test(username);
+//console.log(result) // true - still passes because this [a-z]{6,} is in there somewhere, to combat this use a carrot sign at the beg and a dollar sign at the end
 
-// Matching a word between 6-10 characters long a-z, A-Z, includes capitals. We want this range of characters a-z, A-Z to be typed out between 6- 10 letter long, essentially a word. --> ^[a-zA-Z]{6,10}$
-  //Helloooooo
+// if(result){
+//   console.log('regex test passed')
+// } else {
+//   console.log('regex test failed')
+// }
+// regex test passed
 
-// Matching a word between 6-10 characters long a-z, A-Z, includes numbers --> ^[a-zA-Z0-9]{6,10}$
-  //Ninja123
-
-  // Any characters between 6-10 characters --> ^.{6,10}$
+// using a method on the string
+let result = username.search(pattern);
+console.log(result); // -1  is we don't get a match otherwise its the position of the match -> a 0 match is the first letter in the string. represent the first letter location where it matches.
