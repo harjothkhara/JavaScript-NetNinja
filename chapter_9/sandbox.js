@@ -1,22 +1,43 @@
-const prices = [20,10,30,25,15,40,80,5];
+// reduce method
+//const scores = [10,20,60,40,70,90,30] ----------
 
-//const salePrice = prices.map(price => price / 2);
-//console.log(salePrice); // [10, 5, 15, 12.5, 7.5, 20, 40, 2.5]
+//acc = accumulator - a running total
+//curr = current - current value.
 
-const products = [
-  {name: 'gold star', price: 20},
-  {name: 'mushroom', price: 40},
-  {name: 'green shells', price: 30},
-  {name: 'banana skin', price: 10},
-  {name: 'red shells', price: 50},
-];
+// const result = scores.reduce((acc, curr) => { -----------------
+// // for each item in this array we're firing this callback function. each time around we have access to this accumulator, and the value of this accumulator is remembered through each item as we fire each callback function. it remembers that value each time we fire a callback function as we cycle through each item in the array. we're accumulating values, and for each iteration we can edit that value, its a running total. the value doesn't have to be a number, it could be an object, and for each iteration we could add a new property to that object, or change a property on that object...as we iterate through the value is current. if the current value(curr) in the cycle is > 50 we'll add 1 to it(acc)...so we're counting the number of scores > 50
+//   if(curr > 50){
+//     acc++;
+//   }
+//   return acc; //for each callback function we're returning the value of acc at the end of that iteration. Then that's the value that gets passed into the next iteration
+// }, 0); // this is the initial value of the accumulator
 
-const saleProducts = products.map(product => {
-  if(product.price > 30){
-    return {name: product.name, price: product.price / 2}
-  } else {
-    return product
+//console.log(result); // 3
+
+const scores = [
+  {player: 'mario', score: 50},
+  {player: 'yoshi', score: 30},
+  {player: 'mario', score: 70},
+  {player: 'crystal', score: 60},
+  {player: 'mario', score: 50},
+  {player: 'yoshi', score: 30},
+  {player: 'mario', score: 70},
+  {player: 'crystal', score: 60},
+  {player: 'mario', score: 80},
+  {player: 'yoshi', score: 30},
+  {player: 'mario', score: 70},
+  {player: 'crystal', score: 60},
+  {player: 'mario', score: 90},
+  {player: 'yoshi', score: 30},
+  {player: 'mario', score: 70},
+  {player: 'crystal', score: 60}
+]; // use reduce to add up the total score just for mario
+
+const marioTotal = scores.reduce((acc, curr) => {
+  if(curr.player === 'mario'){
+    acc += curr.score;
   }
-});
+  return acc;
+}, 0);
 
-console.log(saleProducts, products); // original array is still the same. we have not directly changed items in the original array like we would have done here: i.e product.price = product.price /2
+console.log(marioTotal);
