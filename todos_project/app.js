@@ -27,3 +27,11 @@ addForm.addEventListener('submit', e => {
 });
 
 // listening for the submit event, getting the value the user types in and trimming it, then we're calling the generateTemplate function and inside it we're creating this html template and outputting the todo that the user types within in, and then adding that html template to the list in the html.
+
+// delete todos
+list.addEventListener('click', e => {
+
+  if(e.target.classList.contains('delete')) // does the target element contain this specific class
+    e.target.parentElement.remove();
+});
+// we attach an event listener to the ui class, the when we click on an element within the ui, we check whether the target element we clicked has the element with the delete class, if it was then we delete the parent of that trash can, which was the li tag itself. if it wasn't this then this returns false and we do nothing: e.target.classList.contains('delete')
