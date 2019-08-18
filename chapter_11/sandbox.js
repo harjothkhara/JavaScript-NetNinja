@@ -1,22 +1,31 @@
-// dates & times
-const now = new Date();
-console.log(now); // Sun Aug 18 2019 14:35:00 GMT-0700 (Pacific Daylight Time)
-console.log(typeof now); // object
+// timestamps
+const before = new Date('March 18 2019 3:42:59'); // creating a date sometime in the past, just one date string format. could be stored in a database
+const now = new Date(); // get a new date object using the date constructor
+//console.log(now.getTime(), before.getTime()); // if we wanted to get the timestamp from that date we would use the getTime() method. // 1566167673219 - number of milliseconds since the Jan 1, 1970.
+// 1566168250412 Sun Aug 18 2019 03:42:59 GMT-0700 (Pacific Daylight Time)
+// 1566168302884(now) 1566124979000(before)
 
-// years, months, day, times
-console.log('getFullYear:', now.getFullYear()); // getFullYear: 2019
-console.log('getMonth:', now.getMonth()); // getMonth: 7 --> getting us the position of the month in some imaginery array of months. b/c JS is 0 based 7 is August.
-console.log('getDate:', now.getDate()); //getDate: 18 --> date of the month which the 18th
-console.log('getDay:', now.getDay()); //getDay: 0 -> Sunday, 1 -> Monday...
-console.log('getHours:', now.getHours()); //getHours: 14 --> 2pm in the afternoon
-console.log('getMinutes:', now.getMinutes()); //getMinutes: 47 --> 47 minutes in the afternoon
-console.log('getSeconds:', now.getSeconds()); //getSeconds: 23 --> 23 seconds in the afternoon
+// if we wanted to compare two dates together we could compare two timestamps together and figure out the time between them, the difference in milliseconds.
 
+const diff = now.getTime() - before.getTime();
+console.log(diff); // 13263020942 -> now we can convert to minutes, hours, days...
+// maybe we want to see that this blog was created 20 days ago depending on the date...
 
-// timestamps are represented in the date by the number of milliseconds since Jan 1, 1970. This is good because they allow us to compare two dates together.
-console.log('timestamp:', now.getTime()) // 1566165165954
+// difference between timestamps in minutes -
+//1000 miliseconds in a second and 60 seconds in a minute
+const mins = Math.round(diff / 1000 / 60); // 221050
+const hours = Math.round(mins / 60);
+const days = Math.round(hours / 24);
 
-//Date strings
-console.log(now.toDateString()); // Sun Aug 18 2019
-console.log(now.toTimeString()); // 14:54:24 GMT-0700 (Pacific Daylight Time)
-console.log(now.toLocaleString()); // 8/18/2019, 2:55:24 PM
+console.log(mins, hours, days); //221052 3684 154
+
+console.log(`the blog was written ${days} days ago`); // the blog was written 154 days ago
+
+// converting timestamps into date objects
+const timestamp = 1675938474990; //between a certain date and Jan 1, 1970 ...e.g now.getTime()
+// need to convert into a date object
+console.log(new Date(timestamp)) // converts timestamp into the date object
+//1675938474990 ---> Thu Feb 09 2023 02:27:54 GMT-0800 (Pacific Standard Time)
+
+const Day = new Date(timestamp)
+console.log('getDay:', Day.getDay()); // 4 -> Thursday
