@@ -23,9 +23,19 @@ const getTodos = resource => {
   });
 };
 
-getTodos('todos/luigi.json')
+//The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value
+
+getTodos('todos/luigi.json') //returning a promise
   .then(data => {
-    console.log('promise resolved:', data);
+    console.log('promise 1 resolved:', data);
+    return getTodos('todos/mario.json'); // return makes it so we're returning a promise now so we can add on a .then
+  })
+  .then(data => {
+    console.log('promise 2 resolved:', data);
+    return getTodos('todos/shaun.json');
+  })
+  .then(data => {
+    console.log('promise 3 resolved:', data);
   })
   .catch(err => {
     console.log('promise rejected:', err);
