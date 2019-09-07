@@ -1,28 +1,62 @@
-const getTodos = (resource, callback) => {
+const getTodos = resource => {
   // take the callback function in as parameter
-  const request = new XMLHttpRequest(); // built into the JS language
 
-  request.addEventListener('readystatechange', () => {
-    // console.log(request, request.readyState);
-    if (request.readyState === 4 && request.status === 200) {
-      //takes in a json string and turns it into JS objects that we can use in the code. now we'll get an array of JS objects
-      const data = JSON.parse(request.responseText);
-      callback(undefined, data);
-    } else if (request.readyState === 4) {
-      callback('could not fetch data', undefined);
-    }
+  return new Promise((resolve, reject) => {
+    // function that will do the network request
+    const request = new XMLHttpRequest(); // built into the JS language
+
+    request.addEventListener('readystatechange', () => {
+      // console.log(request, request.readyState);
+      if (request.readyState === 4 && request.status === 200) {
+        //takes in a json string and turns it into JS objects that we can use in the code. now we'll get an array of JS objects
+        const data = JSON.parse(request.responseText);
+        // resolve
+        resolve(data);
+      } else if (request.readyState === 4) {
+        // reject
+        reject('error getting resource');
+      }
+    });
+
+    request.open('GET', resource);
+    request.send();
   });
-
-  request.open('GET', resource);
-  request.send();
 };
 
-getTodos('todos/luigi.json', (err, data) => {
-  console.log(data);
-  getTodos('todos/mario.json', (err, data) => {
-    console.log(data);
-    getTodos('todos/shaun.json', (err, data) => {
-      console.log(data);
-    });
+getTodos('todos/luigi.json')
+  .then(data => {
+    console.log('promise resolved:', data);
+  })
+  .catch(err => {
+    console.log('promise rejected:', err);
   });
-});
+
+// promise example - resolved(data back) or rejected(error back)
+
+const getSomething = () => {
+  //takes a functions as the parameter. resolve + reject are build into the JS api
+  return new Promise((resolve, reject) => {
+    // fetch something
+    resolve('some data');
+    //reject('some error');
+  });
+};
+// invoke function and add on the ".then" method and within it a cb is fired with the data thats received when resolved
+// getSomething().then(
+//   data => {
+//     console.log(data);
+//   },
+//   err => {
+//     console.log(err);
+//   }
+// );
+
+// same as above but cleaner by chaining the .catch method
+
+// getSomething()
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
