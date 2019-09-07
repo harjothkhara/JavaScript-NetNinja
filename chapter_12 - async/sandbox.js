@@ -1,4 +1,4 @@
-const getTodos = callback => {
+const getTodos = (resource, callback) => {
   // take the callback function in as parameter
   const request = new XMLHttpRequest(); // built into the JS language
 
@@ -13,26 +13,16 @@ const getTodos = callback => {
     }
   });
 
-  request.open('GET', 'todos.json');
+  request.open('GET', resource);
   request.send();
 };
 
-//executes in order
-console.log(1);
-console.log(2);
-
-//async code - network request starts now and finishes later - non blocking!
-//invoking function with a callback function as argument
-getTodos((err, data) => {
-  console.log('callback fired');
-  if (err) {
-    console.log(err);
-  } else {
+getTodos('todos/luigi.json', (err, data) => {
+  console.log(data);
+  getTodos('todos/mario.json', (err, data) => {
     console.log(data);
-  }
+    getTodos('todos/shaun.json', (err, data) => {
+      console.log(data);
+    });
+  });
 });
-
-console.log(3);
-console.log(4);
-
-// networks request is finished, callback function is fired and data is returned
